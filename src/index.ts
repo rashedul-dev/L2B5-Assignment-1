@@ -21,7 +21,7 @@ function filterByRating(
 }
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
-  // return arrays.flat(); //This require ES2019 that why I use the below one's
+  // return arrays.flat(); //This require ES2019 that's why I use the below one's
   return ([] as T[]).concat(...arrays);
 }
 
