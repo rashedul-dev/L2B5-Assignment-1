@@ -89,7 +89,7 @@ enum Day {
 }
 
 function getDayType(day: Day): string {
-  if (day == Day.Saturday || day == Day.Sunday) {
+  if (day === Day.Saturday || day === Day.Sunday) {
     return "Weekend";
   } else {
     return "Weekday";
