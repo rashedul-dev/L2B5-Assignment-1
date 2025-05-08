@@ -2,7 +2,7 @@
 
 ## Union Types
 
-A **union type** means a value can be one of several types. The following example illustrates this clearly:
+A **union type** means a value can be one of several types. The following example shows this clearly:
 
 ```ts
 let car: string | number | object;
@@ -64,7 +64,7 @@ enum Direction {
   Right,
 }
 
-function doSomething(keyPressed: Direction) {
+function keyPresser(keyPressed: Direction) {
   if (keyPressed === Direction.Up) {
     return Direction.Up;
   }
@@ -79,7 +79,7 @@ function doSomething(keyPressed: Direction) {
   }
 }
 
-console.log(doSomething(Direction.Down)); // 1
+console.log(keyPresser(Direction.Down)); // 1
 ```
 
 ---
