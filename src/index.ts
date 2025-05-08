@@ -21,8 +21,11 @@ function filterByRating(
 }
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
-  // return arrays.flat(); //This require ES2019 that's why I use the below one's
-  return ([] as T[]).concat(...arrays);
+  const result: T[] = [];
+  for (const array of arrays) {
+    result.push(...array);
+  }
+  return result;
 }
 
 class Vehicle {
