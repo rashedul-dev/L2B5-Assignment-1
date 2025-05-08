@@ -9,10 +9,6 @@
     }
   }
 
-  formatString("Hello"); // Output: "HELLO"
-  formatString("Hello", true); // Output: "HELLO"
-  formatString("Hello", false); // Output: "hello"
-
   function filterByRating(
     items: {
       title: string;
@@ -31,16 +27,10 @@
     { title: "Book C", rating: 5.0 },
   ];
 
-  filterByRating(books);
-  // Output: [ { title: "Book A", rating: 4.5 }, { title: "Book C", rating: 5.0 } ]
-
   function concatenateArrays<T>(...arrays: T[][]): T[] {
-    //   return arrays.flat();
+    // return arrays.flat(); //This require ES2019
     return ([] as T[]).concat(...arrays);
   }
-
-  concatenateArrays(["a", "b"], ["c"]); // Output: ["a", "b", "c"]
-  concatenateArrays([1, 2], [3, 4], [5]); // Output: [1, 2, 3, 4, 5]
 
   class Vehicle {
     private make: string;
@@ -66,7 +56,68 @@
   }
 
   const myCar = new Car("Toyota", 2020, "Corolla");
-  const ourCar = new Car("BMW", 2025, "M4");
-  myCar.getInfo(); // Output: "Make: Toyota, Year: 2020"
-  myCar.getModel(); // Output: "Model: Corolla"
+
+  function processValue(value: string | number): number {
+    if (typeof value == "string") {
+      return value.length;
+    } else {
+      return value * 2;
+    }
+  }
+
+  interface Product {
+    name: string;
+    price: number;
+  }
+
+  function getMostExpensiveProduct(products: Product[]): Product | null {
+    if (products.length === 0) {
+      return null;
+    }
+    let maxProduct = products[0];
+    for (const product of products) {
+      if (product.price > maxProduct.price) {
+        maxProduct = product;
+      }
+    }
+
+    return maxProduct;
+  }
+
+  const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 },
+  ];
+
+  enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday,
+  }
+
+  function getDayType(day: Day): string {
+    if (day == Day.Saturday || day == Day.Sunday) {
+      return "Weekend";
+    } else {
+      return "Weekday";
+    }
+  }
+
+  async function squareAsync(n: number): Promise<number> {
+    if (n >= 0) {
+      return new Promise((square) => {
+        setTimeout(() => {
+          console.log("Output after 1s: ");
+          square(n * n);
+        }, 1000);
+      });
+    } else {
+      throw new Error("Negative number not allowed");
+    }
+  }
 }
